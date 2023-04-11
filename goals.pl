@@ -172,24 +172,24 @@ earnings_score(10) :-
 	high_earnings_potential.
 
 
-retirement_score(10) :-
+retirement_score(0) :-
 	retired, !.
-retirement_score(0).
+retirement_score(10).
 
 
-age_score(2) :-
+age_score(10) :-
 	age(N),
 	N >= 18, N < 30.
-age_score(4) :-
+age_score(8) :-
 	age(N),
 	N >= 30, N < 40.
 age_score(6) :-
 	age(N),
 	N >= 40, N < 50.
-age_score(8) :-
+age_score(4) :-
 	age(N),
 	N >= 50, N < 60.
-age_score(10) :-
+age_score(2) :-
 	age(N),
 	N >= 60.
 
@@ -255,10 +255,22 @@ high_risk_portfolio :-
 
 start :-
 	low_risk_portfolio,
-	writeln("Based on your profile, a low risk portfolio is the suggested choice.").
+	writeln("Based on your profile, a low risk portfolio is the suggested choice. We recommend the following portfolio:"),
+    writeln("50% money market funds or short-term bond funds for stability and liquidity."),
+    writeln("30% high-quality bonds or bond funds for income with lower risk."),
+    writeln("20% bond funds or income-producing stocks for growth potential with moderate risk.").
+
+
 start :-
 	moderate_risk_portfolio,
-	writeln("Based on your profile, a moderate risk portfolio is the suggested choice.").
+	writeln("Based on your profile, a moderate risk portfolio is the suggested choice. We recommend the following portfolio:"),
+	writeln("30% money market funds or short-term bond funds for stability and liquidity."),
+    writeln("40% balanced funds or index funds for a diversified portfolio with growth potential."),
+    writeln("30% corporate bonds or bond funds for income with moderate risk.").
+
 start :-
 	high_risk_portfolio,
-	writeln("Based on your profile, a high risk portfolio is the suggested choice.").
+	writeln("Based on your profile, a high risk portfolio is the suggested choice. We recommend the following portfolio:"),
+	writeln("20% money market funds or short-term bond funds for stability and liquidity."),
+    writeln("50% stocks or equity funds for long-term growth potential."),
+	writeln("30% high-yield bonds or dividend-paying stocks for income with higher risk potential.").
